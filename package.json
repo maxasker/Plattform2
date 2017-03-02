@@ -1,0 +1,22 @@
+{
+  "name": "plattform2",
+  "version": "1.0.0",
+  "description": "plattform 2 uppgift",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxasker/Plattform2.git"
+  },
+  "keywords": [
+    "max"
+  ],
+  "author": "Max Asker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxasker/Plattform2/issues"
+  },
+  "homepage": "https://github.com/maxasker/Plattform2#readme"
+}
