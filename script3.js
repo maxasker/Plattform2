@@ -28,14 +28,21 @@ function showsearchresult(data){
     $('<p class="movietitle">').text(data.Title + " (" + data.Year + ")").appendTo($('#' + data.imdbID));
     $("#"+data.imdbID).css("background-image", "url("+ data.Poster +")");
     $('<a class="removiearchive" id="archive-' + data.imdbID + '">').text("Ta bort ifrån arkiv").appendTo($('#' + data.imdbID));
-    $("#archive-" + data["Search"][i].imdbID).click(removefromarch);
+    $("#archive-" + data.imdbID).click(removefromarch);
 }
 
 function removefromarch(){
-    var removeid = this.id;
-    item = localStorage.getItem("archive");
-    idlist = $.parseJSON(item);
-    idlist.pop
+    var idmessy = this.id;
+    var removeid = idmessy.replace("archive-", "");
+    var item = localStorage.getItem("archive");
+    var idlist = $.parseJSON(item);
+    idlist = jQuery.grep(idlist, function(value) {
+    return value != removeid;
+});
+    alert("Filmen är nu borttagen ifrån ditt arkiv");
+    var archive = JSON.stringify(idlist);
+    localStorage.setItem("archive", archive);
+    $("#"+removeid).remove();
     
     
 }
