@@ -1,5 +1,15 @@
 window.addEventListener("load", archivesearch);
 
+if (localStorage.getItem("user") === null) {
+    localStorage.setItem("user", "Ingen användare vald");
+    $("#username").text("Ingen användare vald");
+} else{$("#username").text((localStorage.getItem("user")));}
+
+if (localStorage.getItem("favoritemovie") === null) {
+    localStorage.setItem("favoritemovie", "Ingen favorit vald");
+    $("#favoritetitle").text("Ingen favorit vald");
+} else{$("#favoritetitle").text((localStorage.getItem("favoritemovie")));}
+
 function archivesearch(){
     if (localStorage.getItem("archive") === "[]"){
         $('<p>').text("Tyärr har du inte lagt till någon film än :(").appendTo($('#movies'));   
@@ -43,6 +53,4 @@ function removefromarch(){
     var archive = JSON.stringify(idlist);
     localStorage.setItem("archive", archive);
     $("#"+removeid).remove();
-    
-    
 }

@@ -23,12 +23,13 @@ li{
 }
 
 .sidenav-links{
+    margin-left: -40px;
     text-align: left;
     display: block;
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .favoritemovie{
@@ -123,11 +124,26 @@ footer {
     width:100px;
 }
 
+#favoritetitle, #username{
+    font-size:14px;
+    color:darkslategray;
+}
+
 @media screen and (max-width: 767px) {
     .sidenav {
     height: auto;
     padding: 15px;
 }
+
+.sidenav-links{
+    margin-left:0px;
+    text-align: center;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}    
 
 .row.content {height:auto;} 
 }

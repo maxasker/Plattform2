@@ -1,9 +1,19 @@
-localStorage.clear();
+if (localStorage.getItem("user") === null) {
+    localStorage.setItem("user", "Ingen användare vald");
+    $("#username").text("Ingen användare vald");
+} else{$("#username").text((localStorage.getItem("user")));}
+
 if (localStorage.getItem("archive") === null) {
     var archivejson = [];
     var archive = JSON.stringify(archivejson);
     localStorage.setItem("archive", archive)
 }
+
+
+if (localStorage.getItem("favoritemovie") === null) {
+    localStorage.setItem("favoritemovie", "Ingen favorit vald");
+    $("#favoritetitle").text("Ingen favorit vald");
+} else{$("#favoritetitle").text((localStorage.getItem("favoritemovie")));}
 
 $("#search").on("click", function(){
     var value = $("#moviesearch").val();
@@ -23,7 +33,7 @@ function showsearchresult(data){
     $( ".movieposter" ).remove();
     for (var i = 0; i < data["Search"].length; i++) {
     $('<div class="moviepresent" id="' + i + '">').appendTo($('#movies'));
-    $('<p class="movietitle">').text(data["Search"][i].Title + " (" + data["Search"][i].Year + ")").appendTo($('#' + i));
+    $('<p class="movietitle" id="title-' + data["Search"][i].imdbID + '">').text(data["Search"][i].Title + " (" + data["Search"][i].Year + ")").appendTo($('#' + i));
     $("#"+i).css("background-image", "url("+ data["Search"][i].Poster +")");
     $('<a class="favoritemovie" id="favorite-' + data["Search"][i].imdbID + '">').text("Favoritfilm").appendTo($('#' + i));
     
@@ -51,5 +61,11 @@ function archivefunc(){
 }
 
 function favoritefunc(){
-    alert("HEJ");   
+    var idmessy = this.id;
+    var id = idmessy.replace("favorite-", "");
+    var title = $("#title-" + id).text();
+    alert("Detta är nu din nya favoritfilm!");
+    $("#favoritetitle").text(title);
+    localStorage.setItem("favoritemovie", title);
+    
 }
