@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <title>Inlämning 2</title>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+  <script src="http://malsup.github.com/jquery.form.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -34,15 +36,23 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-12 text-center"> 
-      <h1>Välkommen!</h1>
-      <p>Detta är min nyttoapp, här kan du se vilket väder som råder nära dig.</p>
-      <hr>
-      <h3>Väder just nu hos dig</h3>
-      <div id="loading-image" class="loader center-block"></div>
-      <p id="currentcity"></p>
-      <p id="currenttemp"></p>
-      <p id="currentweather"></p>
-      <img id="weathericon" class="img-rounded img-responsive">
+      <h1>Välkommen till mediahörnan!</h1>
+      <p>Här kan du ladda upp media och se vad du har laddat upp.</p>
+      <div id="media-div">
+         <form action="server.php" enctype="multipart/form-data" method="post" id="media-form">
+           <select name="type">
+             <option value="">Välj typ här</option>
+             <option value="photo">Foto</option>
+             <option value="video">Video</option>
+             <option value="audio">Ljud</option>
+           </select>
+           <input type="file" name="media" class="btn" id="browsebtn">
+           <input type="submit" value="Spara media" class="btn">
+          </form>
+      </div>
+      <div id="showmedia">
+        
+      </div>
     </div>
   </div>
 </div>
@@ -50,8 +60,8 @@
 <footer class="navbar navbar-fixed-bottom">
   <p>Max Renvalder Asker AF9081</p>
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="script.js"></script>
+
+<script src="script5.js"></script>
 </div>
 </body>
 </html>
