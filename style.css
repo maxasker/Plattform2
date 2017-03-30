@@ -3,6 +3,8 @@ li{
     
 }
 
+
+
 .activesidenav{
        
 }
@@ -12,11 +14,11 @@ li{
     width:100%;
 }
 
+
 .mediaphoto{
-    height:100%;
-    width:100%;
-    object-fit: contain;
-    border: 1px solid;
+    margin: 0 auto;
+    height:300px;
+    margin-bottom:50px;
 }
 
 .imagediv{
