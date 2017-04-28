@@ -3,9 +3,11 @@ li{
     
 }
 
-
-.activesidenav{
-       
+.mediavideo{
+    width:100%;   
+}
+#browsebtn{
+    margin-left: calc((100% - 273px) / 2);    
 }
 
 #showmedia{
@@ -44,14 +46,11 @@ li{
     text-decoration: none;
 }
 
-.browsebtn{
-    margin-left:0px;
-    display: inline-block !important;
-}
+
 
 #media-form{
-    width:18%;
-    margin-left:41%;
+    width:40%;
+    margin-left:30%;
 }
 
 #media-div{
@@ -165,6 +164,9 @@ footer {
     font-size:14px;
     color:darkslategray;
 }
+@media screen and (min-width: 768px) and (max-width: 872px){
+    
+}
 
 @media screen and (max-width: 767px) {
     .sidenav {
@@ -172,6 +174,25 @@ footer {
     padding: 15px;
 }
 
+.sidenav-links{
+    margin-left: -40px !important;
+}
+
+
+#media-form{
+    width:100%;
+    margin-left:0%;
+}
+.moviepresent{
+     float:left;
+     margin-left: calc((100% - 300px) / 2);  
+}
+
+#moviesearch{
+    margin-left:0px;
+    width: 100%;
+}
+    
 .sidenav-links{
     margin-left:0px;
     text-align: center;

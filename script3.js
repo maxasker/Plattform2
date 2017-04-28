@@ -24,7 +24,6 @@ function listarchivedmovies(){
 		url: "http://www.omdbapi.com/?i=" + idlist[i],
 		dataType: "JSON"
 	}).done(function(data){
-		console.log(data);
         showsearchresult(data);
 	}).fail(function(data){
         console.log("something went wrong");

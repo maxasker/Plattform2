@@ -1,17 +1,17 @@
-$(document).ready(function() {
-    getmedia("video");
-});
-
+$('#loading-image').hide();
 $(document).ready(function() {
   $('#media-form').on("submit", function(e){
     e.preventDefault();
+    $('#loading-image').show();
     $('#media-form').ajaxSubmit(function(data) {
-    console.log(data);
+    $("#media-form")[0].reset();
+    $('#loading-image').hide();
     var data2 = $.parseJSON(data);
     if (data2.success == true){
-        console.log("YAY")
+        alert("Upload successful");
+    }else{
+     alert("Something went wrong :(");      
     };
-    
     });
   });
 });
@@ -33,19 +33,21 @@ $("#audio").on("click", function(){
 });
 
 function getmedia(mediatype){
+    $('#loading-image').show();
     $.ajax({
 		url: "server.php?action=getMedia&type="+mediatype,
 		dataType: "JSON"
 	}).done(function(data){
-		console.log(data);
+        $('#loading-image').hide();
         updatemedia(data);
 	}).fail(function(data){
+        $('#loading-image').hide();
         console.log("something went wrong");
 	});
 }
 
+
 function updatemedia(data){
-    $(".dizzy-gillespie").remove();
     $("#showmedia").empty();
     for (var i = 0; i < data["files"].length; i++){
         if (data["files"][i]["type"] == "photo"){
@@ -54,12 +56,12 @@ function updatemedia(data){
     }
     for (var i = 0; i < data["files"].length; i++){
         if (data["files"][i]["type"] == "video"){
-    $('<div class="media img-thumbnail"><h2>'+data["files"][i]["title"]+'</h2><video controls type="video/mp4" class="mediavideo" src="' + data["files"][i]["path"] + '"></video></div>').appendTo($('#showmedia'));
+    $('<div class="media img-thumbnail col-md-6 col-xs-12 col-sm-6 col-lg-3"><h2>'+data["files"][i]["title"]+'</h2><video controls type="video/mp4" class="mediavideo" src="' + data["files"][i]["path"] + '"></video></div>').appendTo($('#showmedia'));
         }
     }
     for (var i = 0; i < data["files"].length; i++){
         if (data["files"][i]["type"] == "audio"){
-    $('<div class="media col-md-6 col-xs-12 col-sm-6 col-lg-3"><h2>'+data["files"][i]["title"]+'</h2> <audio controls class="mediaaudio" src="' + data["files"][i]["path"] + '"></audio></div>').appendTo($('#showmedia'));
+    $('<div class="media col-md-6 col-xs-12 col-sm-6 col-lg-3"><h2>'+data["files"][i]["title"]+'</h2>  <audio controls class="mediaaudio" src="' + data["files"][i]["path"] + '"></audio></div>').appendTo($('#showmedia'));
         }
     }
 }
