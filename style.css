@@ -103,25 +103,25 @@ li{
     margin-bottom:100px;   
 }
 .moviepresent{
-    position: relative;
     width:300px;
     height:444px;
     border-style: solid;
     border-width: 2px;
     text-align:left;   
     float:left;
-    margin-left:48.22875px;
+    margin-left:calc((100% - 900px)/4);
     margin-top:40px;
 }
 
 .movietitle{
-    position: absolute;
     width:100%;
     color:white;
     background-color:rgba(0, 0, 0, 0.8);
     bottom:0;
     text-align: center;
     font-size:20px;
+    height:60px;
+    margin-top:350px;
     font-family: "Verdana";
 }
 .sidenav{
@@ -164,11 +164,21 @@ footer {
     font-size:14px;
     color:darkslategray;
 }
-@media screen and (min-width: 768px) and (max-width: 872px){
-    
+
+@media screen and (min-width: 872px) and (max-width: 1126px){
+    .moviepresent{
+    margin-left:calc((100% - 600px)/3);
+}
 }
 
-@media screen and (max-width: 767px) {
+
+@media screen and (min-width: 768px) and (max-width: 871px){
+    .moviepresent{
+    margin-left:calc((100% - 600px)/3);
+}
+}
+    
+@media screen and (max-width: 767px){
     .sidenav {
     height: auto;
     padding: 15px;
@@ -203,8 +213,6 @@ footer {
     font-size: 20px;
 }    
 
-.row.content {height:auto;} 
-}
 
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
@@ -220,4 +228,5 @@ footer {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
 }

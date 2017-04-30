@@ -33,12 +33,12 @@ function showsearchresult(data){
     $( ".movieposter" ).remove();
     for (var i = 0; i < data["Search"].length; i++) {
     $('<div class="moviepresent" id="' + i + '">').appendTo($('#movies'));
-    $('<p class="movietitle" id="title-' + data["Search"][i].imdbID + '">').text(data["Search"][i].Title + " (" + data["Search"][i].Year + ")").appendTo($('#' + i));
+    
     $("#"+i).css("background-image", "url("+ data["Search"][i].Poster +")");
     $('<a class="favoritemovie" id="favorite-' + data["Search"][i].imdbID + '">').text("Favoritfilm").appendTo($('#' + i));
     
     $('<a class="archivemovie" id="archive-' + data["Search"][i].imdbID + '">').text("Arkiv").appendTo($('#' + i));
-        
+    $('<p class="movietitle" id="title-' + data["Search"][i].imdbID + '">').text(data["Search"][i].Title + " (" + data["Search"][i].Year + ")").appendTo($('#' + i));
     $("#archive-" + data["Search"][i].imdbID).click(archivefunc);
     $("#favorite-" + data["Search"][i].imdbID).click(favoritefunc);
     
