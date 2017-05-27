@@ -13,18 +13,17 @@ if (localStorage.getItem("archive") === null) {
 if (localStorage.getItem("favoritemovie") === null) {
     localStorage.setItem("favoritemovie", "Ingen favorit vald");
     $("#favoritetitle").text("Ingen favorit vald");
-} else{$("#favoritetitle").text((localStorage.getItem("favoritemovie")));}
+} else{$("#favoritetitle").text((localStorage.getItem("favoritemovie")));};
 
 $("#search").on("click", function(){
     var value = $("#moviesearch").val();
 	$.ajax({
-		url: "http://www.omdbapi.com/?type=movie&s=" + value,
+		url: "http://www.omdbapi.com/?type=movie&plot=full&s=" + value,
 		dataType: "JSON"
 	}).done(function(data){
-		console.log(data);
         showsearchresult(data);
 	}).fail(function(data){
-        console.log("something went wrong");
+        alert("Något gick fel :(, försök igen senare.");
 	});
 });
 

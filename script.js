@@ -26,17 +26,14 @@ function onSuccess(position){
         var longi = position.coords.longitude;
         var lati = position.coords.latitude;
         localStorage.setItem("position", JSONpos);
-        console.log("det va inte samma")
         getweather(position, lati, longi);
 }else if(JSON.stringify(pos) == JSON.stringify(localpos)){
-        console.log("det va samma data");
         getweathernoreq(position);
 }
     
 }
 
 function getweathernoreq(position){
-    console.log("hej, ska hämta localstuff");
     var data = (localStorage.getItem("positiondata"));
     var data = JSON.parse(data)
     var temperature = data.main.temp - 272.15;

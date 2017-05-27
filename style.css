@@ -124,6 +124,19 @@ li{
     margin-top:350px;
     font-family: "Verdana";
 }
+
+.movietitle2{
+    width:100%;
+    color:white;
+    background-color:rgba(0, 0, 0, 0.8);
+    bottom:0;
+    text-align: center;
+    font-size:14px;
+    height:60px;
+    margin-top:350px;
+    font-family: "Verdana";
+}
+
 .sidenav{
     background-color:white !important;   
 }
@@ -198,6 +211,9 @@ footer {
      margin-left: calc((100% - 300px) / 2);  
 }
 
+#search{
+    padding-bottom:100px;   
+}
 #moviesearch{
     margin-left:0px;
     width: 100%;

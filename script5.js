@@ -4,13 +4,13 @@ $(document).ready(function() {
     e.preventDefault();
     $('#loading-image').show();
     $('#media-form').ajaxSubmit(function(data) {
-    $("#media-form")[0].reset();
     $('#loading-image').hide();
     var data2 = $.parseJSON(data);
     if (data2.success == true){
+        $("#media-form")[0].reset();
         alert("Upload successful");
     }else{
-     alert("Something went wrong :(");      
+     alert("Något gick fel :(, försök igen senare.");      
     };
     });
   });
@@ -42,7 +42,7 @@ function getmedia(mediatype){
         updatemedia(data);
 	}).fail(function(data){
         $('#loading-image').hide();
-        console.log("something went wrong");
+        console.log("Något gick fel :(, försök igen senare.");
 	});
 }
 

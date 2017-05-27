@@ -26,7 +26,7 @@ function listarchivedmovies(){
 	}).done(function(data){
         showsearchresult(data);
 	}).fail(function(data){
-        console.log("something went wrong");
+        console.log("Något gick fel :(, försök igen senare.");
 	});
 }
     
@@ -34,9 +34,9 @@ function listarchivedmovies(){
 
 function showsearchresult(data){
     $('<div class="moviepresent" id="' + data.imdbID + '">').appendTo($('#movies'));
-    $('<p class="movietitle">').text(data.Title + " (" + data.Year + ")").appendTo($('#' + data.imdbID));
-    $("#"+data.imdbID).css("background-image", "url("+ data.Poster +")");
     $('<a class="removiearchive" id="archive-' + data.imdbID + '">').text("Ta bort ifrån arkiv").appendTo($('#' + data.imdbID));
+    $('<p class="movietitle2">').text(data.Title + " (" + data.Year + ")" + " (" + data.Runtime +")").appendTo($('#' + data.imdbID));
+    $("#"+data.imdbID).css("background-image", "url("+ data.Poster +")");
     $("#archive-" + data.imdbID).click(removefromarch);
 }
 
