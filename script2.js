@@ -18,7 +18,7 @@ if (localStorage.getItem("favoritemovie") === null) {
 $("#search").on("click", function(){
     var value = $("#moviesearch").val();
 	$.ajax({
-		url: "http://www.omdbapi.com/?type=movie&plot=full&s=" + value,
+		url: "http://www.omdbapi.com/?apikey=9d8c329f&type=movie&plot=full&s=" + value,
 		dataType: "JSON"
 	}).done(function(data){
         showsearchresult(data);

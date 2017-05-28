@@ -21,7 +21,7 @@ function listarchivedmovies(){
     idlist = $.parseJSON(item);
     for (i = 0; i < idlist.length; i++) {
     $.ajax({
-		url: "http://www.omdbapi.com/?i=" + idlist[i],
+		url: "http://www.omdbapi.com/?apikey=9d8c329f&i=" + idlist[i],
 		dataType: "JSON"
 	}).done(function(data){
         showsearchresult(data);
